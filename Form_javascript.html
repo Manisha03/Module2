@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<!-- JAvaScript validation -->
+
+<!-- saved from url=(0067)http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<link rel="shortcut icon" href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/favicon.ico">
+<title>Vital Partners Leading Dating and Introduction Agency in Sydney &amp; Canberra</title>
+
+ <link href="./css/default.css" rel="stylesheet" type="text/css" media="all"> 
+<link href="./css/stylesheet.css" rel="stylesheet" type="text/css" media="all"> 
+<!--<link href="css/small-resolution.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/medium-resolution.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/high-resolution.css" rel="stylesheet" type="text/css" media="all">-->
+<!-- jQuery library (served from Google) -->
+<script src="./js/jquery.min.js.download"></script>
+<!-- bxSlider Javascript file -->
+<script src="./js/jquery.bxslider.min.js.download"></script>
+<script src="./js/script.js.download" type="text/javascript"></script>
+
+<!-- bxSlider CSS file -->
+ <link href="./css/jquery.bxslider.css" rel="stylesheet"> 
+<!-- Responsive -->
+<link href="./css/responsive.css" rel="stylesheet"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!---<script src="js/validate.js" type="text/javascript"></script>-->
+
+<!-- java script -->
+	<style>
+         .error {color: #FF0000;}
+      </style>
+
+</head>
+
+<body>
+   <script type="text/javascript">
+$(document).ready(function(){
+
+    $("#day,#month,#year").change(function(){
+    var $bday=$("#month").val()+$("#day").val()+","+$("#year").val();
+    var $bday_msec=Date.parse($bday);
+    var current=new Date();
+    var current_msec=Date.parse(current);
+    var age_msec = current_msec - $bday_msec;
+    var age = (age_msec / (86400000 * 365));
+    age = Math.floor(age);
+    $("#age").val(age);
+    });
+  });
+
+
+
+    function validation()
+    {
+
+               //Checkbox
+         var cb1 = document.getElementById('checkbox_sample18').checked;
+         var cb2 = document.getElementById('checkbox_sample19').checked;
+         var cb3 = document.getElementById('checkbox_sample20').checked;
+        
+        if(cb1==false && cb2== false && cb3== false)
+        {
+           document.getElementById('cb_error').innerHTML="Please select one of them";
+          return false;
+        }
+        
+        var correct_way =/^[A-Za-z]+$/;
+
+        //FirstName
+        var fname =document.getElementById('fname').value;
+        if (fname == "")
+         {
+            document.getElementById('fname_error').innerHTML="Please fill name";
+            return false;
+         }
+                if (fname.length<3)
+         {
+            document.getElementById('fname_error').innerHTML="Username must be 3 character";
+            return false;
+         }
+                if (fname.length>20)
+         {
+            document.getElementById('fname_error').innerHTML="Username should be less then 20 character";
+            return false;
+         }
+         if(fname.match(correct_way))
+            true;
+         else
+         {
+            document.getElementById('fname_error').innerHTML="Only alphabets are allow";
+            return false;
+         }
+
+                //LastName
+        var lname =document.getElementById('lname').value;
+        if (lname == "")
+         {
+            document.getElementById('lname_error').innerHTML="Please fill name";
+            return false;
+         }
+                if (lname.length<3)
+         {
+            document.getElementById('lname_error').innerHTML="Lastname must be 3 character";
+            return false;
+         }
+                if (lname.length>20)
+         {
+            document.getElementById('lname_error').innerHTML="Lastname should be less then 20 character";
+            return false;
+         }
+         if(lname.match(correct_way))
+            true;
+         else
+         {
+            document.getElementById('lname_error').innerHTML="Only alphabets are allow";
+            return false;
+         }
+
+         //Phone NUmber
+         var phoneno =document.getElementById('phoneno').value;
+        if (phoneno == "")
+         {
+            document.getElementById('phone_error').innerHTML="Please fill Mobile number";
+            return false;
+         }
+         if (isNaN(phoneno))
+         {
+            document.getElementById('phone_error').innerHTML="Enter only number";
+            return false;
+         }
+          if (phoneno.length<10)
+         {
+            document.getElementById('phone_error').innerHTML="Mobile number must be 10 digit";
+            return false;
+         }
+         if (phoneno.length>10)
+         {
+            document.getElementById('phone_error').innerHTML="Mobile number must be 10 digit";
+            return false;
+         }
+         if ((phoneno.charAt(0)!=9) && (phoneno.charAt(0)!=8) && (phoneno.charAt(0)!=7)) {
+            document.getElementById('phone_error').innerHTML="Mobile number Start with 9 ,8,7";
+            return false;
+         }
+
+         //Office Number
+        var officeno =document.getElementById('officeno').value;
+          if (officeno == "")
+         {
+            document.getElementById('office_error').innerHTML="Please fill Office number";
+            return false;
+         }
+         if (isNaN(officeno))
+         {
+            document.getElementById('office_error').innerHTML="Enter only number";
+            return false;
+         }
+
+         //Age
+        var age =document.getElementById('age').value;
+          if (age == "")
+         {
+            document.getElementById('age_error').innerHTML="Please select age";
+            return false;
+         }
+
+
+         //Email
+         var email = document.getElementById('email').value;
+          if (email == "")
+         {
+            document.getElementById('email_error').innerHTML="Please fill Email";
+            return false;
+         }
+         if(email.indexOf('@')<=0){
+         	document.getElementById('email_error').innerHTML="Invalid @ position";
+         	return false;
+         }
+         if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')){
+         	document.getElementById('email_error').innerHTML="Invalid . position";
+         	return false;
+         }
+
+
+         //password
+                 var correct_way =/^[A-Za-z]+$/;
+
+         var password = document.getElementById('password').value;
+         var cpassword = document.getElementById('cpassword').value;
+
+         if(password=="")
+         {
+         	document.getElementById("password_error").innerHTML="Please enter password";
+         	return false;
+         }
+         if (password.length< 8)
+          {
+          	document.getElementById("password_error").innerHTML="Password length must be greater then 8 character";
+          	return false;
+          }
+          if(password.length>15)
+          {
+          	document.getElementById("password_error").innerHTML="Password length must be less then 15 character";
+          	return false;
+          }
+         if(password.match(correct_way))
+            true;
+         else
+         {
+            document.getElementById('password_error').innerHTML="Only alphabets are allow";
+            return false;
+         }
+
+          if(password!=cpassword)
+          { 
+           document.getElementById("password_error").innerHTML="Password are not same";
+          	return false;
+          }
+
+
+         //Gender
+         var radio1 = document.getElementById('residence1').checked;
+         var radio2 = document.getElementById('residence2').checked;
+         if((radio1=="") && (radio2==""))
+         {
+           document.getElementById('gender_error').innerHTML="Please select one of them";
+              return false;
+         }
+         return true;
+
+
+          //About
+        var about =document.getElementById('about').value;
+          if (about == "")
+         {
+            document.getElementById('about_error').innerHTML="Please fill about you";
+            return false;
+         }
+
+    }
+</script>
+
+
+
+<!--wrapper-starts-->
+<div id="wrapper"> 
+  
+ <!--header-starts-->
+  <header class="clearfix">
+
+    <div class="container"><!--container Start-->
+
+		<div class="Logo_Cont left"><!--Logo_Cont Start-->
+                    	
+           <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/index.html"><img src="./assignment_1_files/logo.png" alt=""></a>
+        
+        </div><!--Logo_Cont End-->
+		
+		<div class="Home_Cont_Right right"><!--Home_Cont_Right Start-->
+                    	
+            <div class="Home_Cont_Right_Top left"><!--Home_Cont_Right_Top Start-->
+                 
+				 <div class="Top_Search1 left">Call Us Today! (02) 9017 8413</div>
+				 <div class="Top_Search2 right"><input id="tags1" name="" type="text" onclick="this.value=&#39;&#39;;" onblur="validate_field(&#39;phone&#39;);" value="Type desired Job Location" data-cip-id="tags1"></div>
+           
+        	</div><!--Home_Cont_Right_Top End-->
+
+			<div class="Home_Cont_Right_Bottom left"><!--Home_Cont_Right_Bottom Start-->
+				<div class="toggle_menu"><a href="javascript:void(0)">Menu</a></div>
+                 <div id="topMenu">
+                 	<ul>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/index.html">Home</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/blog_index.html">Dating Blog</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/who_we_help.html">Who We Help</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/why_vital.html">Why Vital</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/reviews.html">Reviews</a></li>
+                 		<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/contact_us.html">Contact Us</a></li>
+                 	</ul>
+                 </div>
+           
+        	</div><!--Home_Cont_Right_Bottom End-->
+        
+        </div><!--Home_Cont_Right End-->
+
+	</div><!--container End-->
+
+  </header>
+  <!--header-ends-->
+
+  <div class="section banner_section who_we_help">
+  	<div class="container">
+  		<h4>Thanks For Your Inquiry</h4>
+  	</div>
+  </div>
+
+  <!-- Content Section Start  action="assignment_1_files/hii.html"  onsubmit="return validateForm()" -->
+ 	<form class="Register" name="Register" onsubmit="return validation()"  method="post" >
+  <div class="section content_section">
+	<div class="container">
+		<div class="filable_form_container">
+			<div class="form_container_block">
+				<ul>
+					<li class="fileds">
+						<div class="name_fileds">
+							<label>First Name</label><span id="fname_error" class="error"> </span>
+							<input name="fname" type="text" id="fname" data-cip-id="cIPJQ342845639"> 
+						</div>
+						<div class="name_fileds">
+							<label>Last Name</label><span id="lname_error" class="error"> </span>
+                            <input name="lastname" type="text" id="lname"  data-cip-id="cIPJQ342845640"> 
+						</div> 
+					</li>
+					<li class="fileds">
+						<div class="phone_fileds">
+							<label>Phone No</label><span id="phone_error" class="error"> </span>
+                            <input name="phone" id="phoneno" type="text" data-cip-id="cIPJQ342845641"> 
+						</div>
+						<div class="phone_fileds">
+							<label>Office No</label><span id="office_error" class="error"> </span>
+                            <input name="office" id="officeno"  type="text" data-cip-id="cIPJQ342845642"> 
+						</div>
+					</li>					
+					<li class="fileds">
+						<div class="email_fileds">
+							<label>Email</label><span id="email_error" class="error"> </span>
+                            <input name="email" id="email" type="text" data-cip-id="cIPJQ342845643"> 
+						</div>
+						<div class="pass_fileds">
+							<label>Password</label><span id="password_error" class="error"> </span>
+                            <input name="password" id="password" type="password" data-cip-id="cIPJQ342845644"> 
+						</div>
+					</li>
+					<li class="fileds">
+						<div class="pass_fileds">
+							<label>Confirm Password</label><span id="cpassword_error" class="error"> </span>
+                            <input name="password" id="cpassword" type="password" data-cip-id="cIPJQ342845645"> 
+						</div>
+							<div class="dob_fileds selectbox">
+								<label>My birthdate is</label>
+
+								<ul>
+									<li>
+                                          <select name="month" id="month" class="select month" style="z-index: 10; opacity: 0;">
+											<option value="jan">Jan</option>
+											<option value="feb">Feb</option>
+											<option value="march">March</option>
+											<option value="april">April</option>
+											<option value="may">May</option>
+											<option value="june">June</option>
+											<option value="july">July</option>
+											<option value="aug">Aug</option>
+											<option value="sep">Sep</option>
+											<option value="oct">Oct</option>
+											<option value="nov">Nov</option>
+											<option value="dec">Dec</option>
+										</select>
+									</li>
+									<li>
+                                            <select name="day" id="date" class="select day" data-cip-id="cIPJQ342845648" style="z-index: 10; opacity: 0;">
+											<option value="1">01</option>
+											<option value="2">02</option>
+											<option value="3">03</option>
+											<option value="4">04</option>
+											<option value="5">05</option>
+											<option value="6">06</option>
+											<option value="7">07</option>
+											<option value="8">08</option>
+											<option value="9">09</option>
+											<option value="10">10</option>
+
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+											<option value="25">25</option>
+											<option value="26">26</option>
+											<option value="27">27</option>
+											<option value="28">28</option>
+											<option value="29">29</option>
+											<option value="30">30</option>
+											<option value="31">31</option>
+										</select>
+									</li>
+
+									<li>
+                    <select name="year" id="year" class="select year" data-cip-id="cIPJQ342845649" style="z-index: 10; opacity: 0;">
+                      <option value="1990">1990</option>
+                      <option value="1991">1991</option>
+                      <option value="1992">1992</option>
+                      <option value="1993">1993</option>
+                      <option value="1994">1994</option>
+                      <option value="1995">1995</option>
+                      <option value="1996">1996</option>
+                      <option value="1997">1997</option>
+                      <option value="1998">1998</option>
+                      <option value="1999">1999</option>
+                      <option value="2000">2000</option>
+                      <option value="2001">2001</option>
+                      <option value="2002">2002</option> 
+                      <option value="2003">2003</option>
+                      <option value="2004">2004</option>
+                      <option value="2005">2005</option>
+
+                  	</select>
+									</li>
+								</ul>
+							</div>
+					</li>
+					<li class="fileds">
+						<div class="age_fileds">
+							<label>Age</label><span id="age_error" class="error"> </span>
+                            <input name="age" id="age" type="text" data-cip-id="cIPJQ342845646" disabled=""> 
+						</div>
+						<div class="gender_fileds">
+							<label>Gender</label><span id="gender_error" class="error"> </span>
+							<ul>
+                                <li><input type="radio"  class="radio" id="residence1" name="radio"><label class="radio-label" for="residence1">Male</label></li>
+								<li><input type="radio" class="radio" id="residence2" name="radio"><label class="radio-label" for="residence2">Female</label></li>
+							</ul>	
+						</div>
+					</li>
+					<li>
+						<div class="interest_fileds">
+						<label>Interest</label><span id="cb_error" class="error"> </span>
+							<ul>
+								<li><input type="checkbox" class="checkbox" id="checkbox_sample18"> <label class="css-label" for="checkbox_sample18">Biking</label></li>
+								<li><input type="checkbox" class="checkbox" id="checkbox_sample19"> <label class="css-label" for="checkbox_sample19">Reading</label></li>
+								<li><input type="checkbox" class="checkbox" id="checkbox_sample20"> <label class="css-label" for="checkbox_sample20">Playing</label></li>
+							</ul>
+						</div>
+						<div class="about_you_fileds">
+						<label>About you</label><span id="about_error" class="error"> </span>
+                        <textarea id="about"></textarea>
+						</div>						
+					</li>
+				</ul> 
+				<div class="next_btn_block">
+
+<center>
+  <button type="submit" class="btn btn-success" name="submit" style="height: 47px;width: 170px;background-color: #9fbc35;" value="submit"><p style="color: white;">Submit <span><img src="./assignment_1_files/small_triangle.png" alt="small_triangle"> </span></p>  </button>
+ <!-- <input type="submit" name="submit" value="submit">-->
+</center>
+
+ 			<!--<div class="next_btn">
+               	    <a href="#"> Submit <span><img src="./assignment_1_files/small_triangle.png" alt="small_triangle"> </span>  </a> 
+					</div> -->
+				</div> 
+			</div>
+		</div>
+	</div>		
+  </div>
+  				</form>
+
+  <!-- Content Section End-->
+
+
+
+
+<div class="section clearfix section-colored7"><!--section start--> 
+    	
+	<div class="container"><!--container Start-->
+		
+		<div class="Download_Cont_Top_Left left"><!--Download_Cont_Top Start-->
+			<img src="./assignment_1_files/icon5.png" alt=""> <h1 style="display:inline;">FREE: Men Are From Mars</h1> <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Download Now</a>
+
+		</div><!--Download_Cont_Top End-->	
+		
+	</div><!--container End-->
+
+</div><!--section End-->
+
+
+
+
+ <!--footer-starts-->
+  <footer class="footer_wrapper">
+
+    <div class="container"><!--container Start-->
+		
+		<div class="Footer_Cont_Top clearfix"><!--Footer_Cont_Top Start-->
+
+			<span class="left"><img src="./assignment_1_files/foot_logo.png" alt=""></span>
+			<p class="right">Shortcut your search to happiness right now. 
+Live a life without regrets and take action today!</p>
+		</div><!--Footer_Cont_Top End-->
+		
+		<div class="Footer_Cont_Top2 clearfix"><!--Footer_Cont_Top2 Start-->
+
+			<h1>Call Us Today! (02) 9017 8413</h1>
+			 <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Book an Appointment <img src="./assignment_1_files/icon7.png" alt=""></a>
+ 			 <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Contact a Consultant <img src="./assignment_1_files/icon6.png" alt=""></a>
+		</div><!--Footer_Cont_Top2 End-->
+		
+		<div class="Footer_Cont_Top3 clearfix"><!--Footer_Cont_Top3 Start-->
+			
+			<div class="Foot_Link1"><!--Foot_Link1 Start-->
+
+				<h1>CONTACT INFO</h1>
+
+				<div class="Foot_Link2"><!--Foot_Link2 Start-->
+					 
+				  <span>4/220 George St, Sydney NSW 2000</span>
+				  <p>Phone: (02) 9017 8413</p>
+				  <p>Email: <a href="mailto:info@syd.vitalpartners.com.au" target="_blank">info@syd.vitalpartners.com.au</a></p>
+
+				</div><!--Foot_Link2 End-->
+
+				<div class="Foot_Link2"><!--Foot_Link2 Start-->
+					 
+				  <span>Canberra City Act 2600 </span>
+				  <p>Phone: (02) 9017 8426</p>
+				  <p>Email: <a href="mailto:can@syd.vitalpartners.com.au" target="_blank">can@syd.vitalpartners.com.au</a></p>
+
+				</div><!--Foot_Link2 End-->
+
+			</div><!--Foot_Link1 End-->
+
+			<div class="Foot_Link1"><!--Foot_Link2 Start-->
+				<h1>RECENT POSTS</h1>
+
+				<div class="Foot_Link3"><!--Foot_Link3 Start-->
+					<ul>
+						<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">How to Recover After a Bad Date</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Review | Vital Partners Review</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Review | Vital Partners Review</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Review | Vital Partners Derek and Julie</a></li>
+                        <li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">7 Rules for a Happy Relationship | Vital Partners Dating Sydney</a></li>
+					</ul>
+				</div><!--Foot_Link3 End-->
+
+			</div><!--Foot_Link1 End-->
+
+			<div class="Foot_Link1"><!--Foot_Link2 Start-->
+				<h1>RECENT TWEETS</h1>
+
+				<div class="Foot_Link4"><!--Foot_Link4 Start-->
+					<ul>
+						<li class="left">
+							<p>Are you being vulnerable to find love? via offline dating agency Sydney Canberra Vital Partners </p> 
+			             <div class="Page_Link left"><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">http://t.co/hGCgHEU6If</a></div>
+						 <div class="Page_Link right"> 1 week ago</div>
+					    </li>
+                      <li class="left">
+							<p>Are you being vulnerable to find love? via offline dating agency Sydney Canberra Vital Partners </p> 
+			             <div class="Page_Link left"><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">http://t.co/hGCgHEU6If</a></div>
+						 <div class="Page_Link right"> 2 week ago</div>
+					    </li>
+					</ul>
+				</div><!--Foot_Link4 End-->
+
+			</div><!--Foot_Link2 End-->
+
+		
+		</div><!--Footer_Cont_Top3 End-->
+	
+	</div><!--container End-->
+
+    <div class="section clearfix section-colored9"><!--section section-colored9 start--> 
+            
+        <div class="container"><!--container Start-->
+            
+          <div class="Foot_Link5 left"><!--Foot_Link5 Start-->
+				© VitalPartners.com.au
+		  </div><!--Foot_Link5 End-->
+
+			<div class="Foot_Link6 left"><!--Foot_Link5 Start-->
+				<a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/contact_us.html">Contact</a> |  <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/terms_of_use.html">Terms of Use</a> |   <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/privacy_policy.html">Privacy Policy</a> |  <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/disclaimer.html">Disclaimer</a>
+            </div><!--Foot_Link6 End-->
+
+
+			<div class="Foot_Link7 right"><!--Foot_Link7 Start-->
+				<span>FOLLOW US:</span>
+
+				<ul class="social_media">
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#" class="fb">Facebook</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#" class="twitter">Twitter</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#" class="linkedin">LinkedIn</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#" class="you_tube">You Tube</a></li>
+					<li><a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#" class="gplus">Google plus</a></li>
+				</ul>
+
+
+				<!-- <p><a href="#"><img src="images/icon10.png" alt=""></a></p>
+                <p><a href="#"><img src="images/icon11.png" alt=""></a></p>
+                <p><a href="#"><img src="images/icon12.png" alt=""></a></p>
+                <p><a href="#"><img src="images/icon13.png" alt=""></a></p>
+                <p><a href="#"><img src="images/icon14.png" alt=""></a></p> -->
+			</div><!--Foot_Link7 End-->
+            
+      </div><!--container End-->
+    
+    </div><!--section section-colored9 End--> 
+	 
+    <div class="section section-colored10"><!--section section-colored9 start--> 
+            
+        <div class="container"><!--container Start-->
+			<div class="Foot_Link8 "><!--Foot_Link8 Start-->
+			<a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Who Designed This Site?</a> <a href="http://wireframes.php-dev.in/training/v1.2/javascript/assignment_1/#">Who  Built This Site?</a>
+			</div><!--Foot_Link8 End-->
+		</div><!--container End-->
+    
+    </div><!--section section-colored9 End--> 
+  </footer>
+  <!--footer-ends--> 
+
+  <!-- Sticky Contact Number Start
+  <div class="fixed_contact_number">
+  	<div class="container">
+  		<div class="contact_number">
+  			<span>Call Us Today! (02) 9017 8413</span>
+  			<a href="contact_us.html">Conatct Us</a>
+  		</div>  		
+  	</div>
+  </div>
+  ,phoneno,officeno,email,password,cpassword,month,date,year,age,residence1,checkbox_sample1,about
+   Sticky Contact Number End-->
+
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+	  $('.bxslider').bxSlider();
+	});
+</script>
+<!--wrapper-starts-->
+
+<script type="text/javascript" src="js/jquery.js.download"></script>	
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.select').each(function(){
+		  var title = $(this).attr('title');
+		  if( $('option:selected', this).val() != ''  ) title = $('option:selected',this).text();
+		  $(this).css({'z-index':10,'opacity':0,'-khtml-appearance':'none'}).after('<span class="select">' + title + '</span>').change(function(){
+			val = $('option:selected',this).text();
+			$(this).next().text(val);
+		  })
+		});
+	});
+</script>
+
+
+</body></html>

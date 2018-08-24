@@ -1,0 +1,18 @@
+<?php
+     $firstname=$lastname=$phoneno=$officeno=$email=$password=$cpassword=$month=$data=$year=$age=$radio=$checkbox=$about=" ";
+     if($_SERVER["REQUEST_METHOD"]=="POST")
+     {
+     	if(empty($_POST["firstname"]))
+		{
+       		$firstname = "Name is required"; 
+		}
+		else 
+    	{ 
+    		if (!preg_match("/^[a-zA-Z\s]+/",$firstname)) {
+    	 	$firstname = "Only letters and white space allowed"; 
+    	}
+   	 	}
+     }
+
+
+?>
